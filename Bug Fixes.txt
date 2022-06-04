@@ -1,2 +1,19 @@
 Problems to resolve
 
+- Motherboard floats and spins when all componenets attached to it
+
+- Smooth out weird interatctions between all parts, 
+-Fix case movement, should not be able to move from individual parts
+
+- Add motherboard slot on case
+- Add PSU slot on case
+- Add HDD slots and SSD Slots on case
+
+- Make a script that stores GameObject of the attached components, this is how the program will know if everything is in place
+	- this srcipt can also disable rigidbody colliisions between each other so the compoenents wont spint a
+
+Things to add: 
+- case fan model
+- monitor 
+
+
