@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500950386875006624}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0.581, z: 0.493}
+  m_LocalPosition: {x: 0, y: 0.752, z: 0.493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1830229866719567658}
   - component: {fileID: 8996260492060938016}
   - component: {fileID: 1954831173865090854}
+  - component: {fileID: 7844592447280113115}
   m_Layer: 0
   m_Name: RAM Slot 2
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &7844592447280113115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533458739260527257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b91c3cb5cfe2e4093b6ded75c03e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryObject: {fileID: 0}
 --- !u!1 &1749586336175624336
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +367,7 @@ GameObject:
   - component: {fileID: 4346022458018250258}
   - component: {fileID: 5155991760472062994}
   - component: {fileID: 1347807541323002496}
+  - component: {fileID: 6615031128286042939}
   m_Layer: 0
   m_Name: CPU Slot
   m_TagString: Untagged
@@ -490,6 +505,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &6615031128286042939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2393024337579645917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 060b6fce5eeb2374c8e54e5ab3f151e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cpuObject: {fileID: 0}
 --- !u!1 &2463099908585000874
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +531,7 @@ GameObject:
   - component: {fileID: 3694733495006547947}
   - component: {fileID: 4106714552665319923}
   - component: {fileID: 3503347717314613893}
+  - component: {fileID: 237583159988442159}
   m_Layer: 0
   m_Name: RAM Slot 4
   m_TagString: Untagged
@@ -640,6 +669,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &237583159988442159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463099908585000874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b91c3cb5cfe2e4093b6ded75c03e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryObject: {fileID: 0}
 --- !u!1 &2603071978329417706
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +796,7 @@ GameObject:
   - component: {fileID: 2785515153960342277}
   - component: {fileID: 4050801837061727866}
   - component: {fileID: 2536961651190976771}
+  - component: {fileID: 4423543474996629542}
   m_Layer: 0
   m_Name: RAM Slot 3
   m_TagString: Untagged
@@ -891,6 +934,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &4423543474996629542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617907372921283317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b91c3cb5cfe2e4093b6ded75c03e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryObject: {fileID: 0}
 --- !u!1 &4044845700668725317
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +960,7 @@ GameObject:
   - component: {fileID: 6677794962276539091}
   - component: {fileID: 4641063973175460786}
   - component: {fileID: 8953465178324029798}
+  - component: {fileID: 7477383367834503664}
   m_Layer: 0
   m_Name: GPU Slot 1
   m_TagString: Untagged
@@ -1041,6 +1098,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &7477383367834503664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4044845700668725317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53529e2c73ff7f84bbf270f22f9801c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gpuObject: {fileID: 0}
 --- !u!1 &4602570402350857642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1465,7 @@ GameObject:
   - component: {fileID: 6717755272336798292}
   - component: {fileID: 8960996029966474591}
   - component: {fileID: 2713980144464753157}
+  - component: {fileID: 4976290105100100123}
   m_Layer: 0
   m_Name: GPU Slot 2
   m_TagString: Untagged
@@ -1532,6 +1603,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &4976290105100100123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995182291061082300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53529e2c73ff7f84bbf270f22f9801c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gpuObject: {fileID: 0}
 --- !u!1 &7330006670082826242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1660,7 @@ GameObject:
   - component: {fileID: 5358417439514902878}
   - component: {fileID: 7415023195106887596}
   - component: {fileID: 4861121565231766455}
+  - component: {fileID: 3102989335551861172}
   m_Layer: 0
   m_Name: CPU Cooler Slot
   m_TagString: Untagged
@@ -1713,6 +1798,19 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &3102989335551861172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7540659415416229402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bb957d2ce54e745939644105a47dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cpuCoolerObject: {fileID: 0}
 --- !u!1 &7917738368458833889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,6 +1855,7 @@ GameObject:
   - component: {fileID: 956988165728423064}
   - component: {fileID: 5032761714317954509}
   - component: {fileID: 7432850889456036027}
+  - component: {fileID: 5040428390622417961}
   m_Layer: 0
   m_Name: RAM Slot 1
   m_TagString: Untagged
@@ -1894,3 +1993,16 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
+--- !u!114 &5040428390622417961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027225566957165386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b91c3cb5cfe2e4093b6ded75c03e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryObject: {fileID: 0}
