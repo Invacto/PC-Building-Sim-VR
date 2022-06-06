@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1586645868349795232}
   - component: {fileID: 1243570415768682550}
   - component: {fileID: 6511606748413201983}
-  - component: {fileID: 6093073362803569937}
+  - component: {fileID: 2328365012433819921}
   m_Layer: 6
   m_Name: cpu
   m_TagString: Untagged
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
---- !u!114 &6093073362803569937
+--- !u!114 &2328365012433819921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2472194470594222868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5db5f25faeacc4e8bad16f54eb52b9, type: 3}
+  m_Script: {fileID: 11500000, guid: b422d750035d3b24899c7071f70a980f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _name: 

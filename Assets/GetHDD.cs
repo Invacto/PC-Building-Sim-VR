@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-public class GetMemory : MonoBehaviour
-{
-    [SerializeField] private GameObject memoryObject;
 
-     private bool rightGripValue;
-     private bool leftGripValue;
-     private bool handInTrigger;
+public class GetHDD : MonoBehaviour
+{
+    [SerializeField] private GameObject hddObject;
+
+    private bool rightGripValue;
+    private bool leftGripValue;
+    private bool handInTrigger;
 
     private void Update()
     {
@@ -26,19 +27,20 @@ public class GetMemory : MonoBehaviour
         if (collider.GetComponent<XRDirectInteractor>())
         {
             handInTrigger = true;
-        } else
+        }
+        else
         {
             handInTrigger = false;
         }
 
 
-        if (collider.gameObject.GetComponent<Memory>())
+        if (collider.gameObject.GetComponent<HDD>())
         {
-            memoryObject = collider.gameObject;
+            hddObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = hddObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -48,9 +50,9 @@ public class GetMemory : MonoBehaviour
         }
 
 
-        if (memoryObject != null && memoryObject.GetComponent<Memory>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (hddObject != null && hddObject.GetComponent<HDD>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = hddObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -59,22 +61,19 @@ public class GetMemory : MonoBehaviour
         }
     }
 
-    
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == memoryObject && memoryObject != null)
+        if (collider.gameObject == hddObject && hddObject != null)
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = hddObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            memoryObject = null;
+            hddObject = null;
 
         }
     }
-
-   
 }

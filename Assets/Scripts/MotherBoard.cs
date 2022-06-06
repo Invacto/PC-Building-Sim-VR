@@ -8,7 +8,7 @@ public class MotherBoard : MonoBehaviour
     [SerializeField] private MotherBoardSize _motherBoardSize;
     [SerializeField] private Socket _socket;
     [SerializeField] private CPU _cpu;
-    [SerializeField] private CPUFan _cpuFan;
+    [SerializeField] private CPU _cpuFan;
     [SerializeField] private int _memorySlots;
     [SerializeField] private Memory[] _memory;
     [SerializeField] private GPULane _gpuLane;
@@ -20,7 +20,7 @@ public class MotherBoard : MonoBehaviour
     public MotherBoardSize MotherBoardSize { get { return _motherBoardSize; } }
     public Socket Socket { get { return _socket; } }
     public CPU CPU { get { return _cpu; } }
-    public CPUFan CPUFan { get { return _cpuFan; } }
+    public CPU CPUFan { get { return _cpuFan; } }
     public int MemorySlots { get { return _memorySlots; } }
     public Memory[] MemorySticks { get { return _memory; } }
     public GPULane GPULane { get { return _gpuLane; } }
@@ -48,7 +48,7 @@ public class MotherBoard : MonoBehaviour
         return false;
     }
 
-    public bool InsertCPUFan(CPUFan cpuFan)
+    public bool InsertCPUFan(CPU cpuFan)
     {
 
         _cpuFan = cpuFan;

@@ -160,8 +160,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
-  m_Center: {x: -0.000000029802326, y: -0.0000001192093, z: -0.00000005960465}
+  m_Size: {x: 0.477592, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0.0000010339836, y: -0.00000012000272, z: -0.000000079209784}
 --- !u!114 &1954831173865090854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -616,8 +616,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
-  m_Center: {x: -0.000000029802326, y: -0.0000001192093, z: -0.00000005960465}
+  m_Size: {x: 0.58207273, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: -0.10448183, y: -0.00000012000272, z: -0.000000079209784}
 --- !u!114 &3503347717314613893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -881,8 +881,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
-  m_Center: {x: -0.000000029802326, y: -0.0000001192093, z: -0.00000005960465}
+  m_Size: {x: 0.52983445, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: 0.026120197, y: -0.00000012000272, z: -0.000000079209784}
 --- !u!114 &2536961651190976771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +928,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 1960060187290483087}
   - component: {fileID: 6636662389830090796}
   - component: {fileID: 3318398185692460483}
+  - component: {fileID: 2880678932177389710}
   m_Layer: 6
   m_Name: Motherboard
   m_TagString: Untagged
@@ -1390,6 +1391,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4258375, y: 0.12794432, z: 2.478648}
   m_Center: {x: -0.15314454, y: 1.0826182, z: -1.288537}
+--- !u!114 &2880678932177389710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602570402350857642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f5fad1176fe804db820eb3ca341a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 
+  _motherBoardSize: 0
+  _socket: 0
+  _cpu: {fileID: 0}
+  _cpuFan: {fileID: 0}
+  _memorySlots: 0
+  _memory: []
+  _gpuLane: 0
+  _gpuSlots: 0
+  _gpus: []
+  _wattage: 0
 --- !u!1 &5042687820541867145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5785524171995642502}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -0.355, z: 0.073}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0.073}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1597,7 +1621,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -1792,7 +1816,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
@@ -1940,8 +1964,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
-  m_Center: {x: -0.000000029802326, y: -0.0000001192093, z: -0.00000005960465}
+  m_Size: {x: 0.5298346, y: 1.0000002, z: 1.0000002}
+  m_Center: {x: -0.026120296, y: -0.00000012000272, z: -0.000000079209784}
 --- !u!114 &7432850889456036027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1987,7 +2011,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
+  m_ShowInteractableHoverMeshes: 0
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1

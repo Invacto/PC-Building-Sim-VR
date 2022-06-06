@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-public class GetMemory : MonoBehaviour
-{
-    [SerializeField] private GameObject memoryObject;
 
-     private bool rightGripValue;
-     private bool leftGripValue;
-     private bool handInTrigger;
+public class GetMotherboard : MonoBehaviour
+{
+    [SerializeField] private GameObject motherboardObject;
+
+    private bool rightGripValue;
+    private bool leftGripValue;
+    private bool handInTrigger;
 
     private void Update()
     {
@@ -26,19 +25,20 @@ public class GetMemory : MonoBehaviour
         if (collider.GetComponent<XRDirectInteractor>())
         {
             handInTrigger = true;
-        } else
+        }
+        else
         {
             handInTrigger = false;
         }
 
 
-        if (collider.gameObject.GetComponent<Memory>())
+        if (collider.gameObject.GetComponent<MotherBoard>())
         {
-            memoryObject = collider.gameObject;
+            motherboardObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = motherboardObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -48,9 +48,9 @@ public class GetMemory : MonoBehaviour
         }
 
 
-        if (memoryObject != null && memoryObject.GetComponent<Memory>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (motherboardObject != null && motherboardObject.GetComponent<MotherBoard>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = motherboardObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -59,22 +59,20 @@ public class GetMemory : MonoBehaviour
         }
     }
 
-    
+
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == memoryObject && memoryObject != null)
+        if (collider.gameObject == motherboardObject && motherboardObject != null)
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = motherboardObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            memoryObject = null;
+            motherboardObject = null;
 
         }
     }
-
-   
 }

@@ -1,7 +1,5 @@
 Problems to resolve
 
-- Motherboard floats and spins when all componenets attached to it
-
 - Smooth out weird interatctions between all parts, 
 -Fix case movement, should not be able to move from individual parts
 
