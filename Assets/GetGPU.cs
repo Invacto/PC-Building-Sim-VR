@@ -4,7 +4,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GetGPU : MonoBehaviour
 {
-    [SerializeField] private GameObject gpuObject;
+    [SerializeField] private GameObject _gpuObject;
+
+    public GameObject GPU { get { return _gpuObject; } }
 
      private bool rightGripValue;
      private bool leftGripValue;
@@ -32,11 +34,11 @@ public class GetGPU : MonoBehaviour
 
         if (collider.gameObject.GetComponent<GPU>())
         {
-            gpuObject = collider.gameObject;
+            _gpuObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = gpuObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = _gpuObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -46,9 +48,9 @@ public class GetGPU : MonoBehaviour
         }
 
 
-        if (gpuObject != null && gpuObject.GetComponent<GPU>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (_gpuObject != null && _gpuObject.GetComponent<GPU>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = gpuObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _gpuObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -59,16 +61,16 @@ public class GetGPU : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == gpuObject && gpuObject != null)
+        if (collider.gameObject == _gpuObject && _gpuObject != null)
         {
-            BoxCollider[] colliders = gpuObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _gpuObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            gpuObject = null;
+            _gpuObject = null;
         }
     }
 }

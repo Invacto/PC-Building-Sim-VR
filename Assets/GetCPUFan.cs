@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class GetCPUCooler : MonoBehaviour
+public class GetCPUFan : MonoBehaviour
 {
 
-    [SerializeField] private GameObject cpuCoolerObject;
+    [SerializeField] private GameObject _cpuCoolerObject;
+
+    public GameObject CPUFan { get { return _cpuCoolerObject; } }
 
     private bool rightGripValue;
     private bool leftGripValue;
@@ -33,11 +35,11 @@ public class GetCPUCooler : MonoBehaviour
 
         if (collider.gameObject.GetComponent<CPUFan>())
         {
-            cpuCoolerObject = collider.gameObject;
+            _cpuCoolerObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = cpuCoolerObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = _cpuCoolerObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -47,9 +49,9 @@ public class GetCPUCooler : MonoBehaviour
         }
 
 
-        if (cpuCoolerObject != null && cpuCoolerObject.GetComponent<CPUFan>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (_cpuCoolerObject != null && _cpuCoolerObject.GetComponent<CPUFan>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = cpuCoolerObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _cpuCoolerObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -60,16 +62,16 @@ public class GetCPUCooler : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == cpuCoolerObject && cpuCoolerObject != null)
+        if (collider.gameObject == _cpuCoolerObject && _cpuCoolerObject != null)
         {
-            BoxCollider[] colliders = cpuCoolerObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _cpuCoolerObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            cpuCoolerObject = null;
+            _cpuCoolerObject = null;
         }
     }
 }

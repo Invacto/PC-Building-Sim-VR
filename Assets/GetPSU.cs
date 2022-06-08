@@ -6,6 +6,8 @@ public class GetPSU : MonoBehaviour
 {
     [SerializeField] private GameObject psuObject;
 
+    public GameObject PowerSupply { get { return psuObject; } }
+
     private bool rightGripValue;
     private bool leftGripValue;
     private bool handInTrigger;

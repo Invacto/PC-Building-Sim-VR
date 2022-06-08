@@ -4,80 +4,88 @@ using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
-    [SerializeField] private string _name;
-    [SerializeField] private MotherBoardSize _motherBoardSize;
-    [SerializeField] private MotherBoard _motherBoard;
+
     [SerializeField] private PowerSupply _powerSupply;
-    [SerializeField] private int _storageSlots;
-    [SerializeField] private Storage[] _storage;
-    [SerializeField] private int _fanSlots;
-    [SerializeField] private Fan[] _fans;
+    [SerializeField] private MotherBoard _motherBoard;
+    [SerializeField] private CPU _cpu;
+    [SerializeField] private CPUFan _cpuFan;
+    [SerializeField] private GPU[] _gpus;
+    [SerializeField] private Memory[] _memory;
+    [SerializeField] private HDD[] _hdds;
+    [SerializeField] private SSD[] _ssds;
 
-    public string Name { get { return _name; } }
-    public MotherBoardSize MotherBoardSize { get { return _motherBoardSize; } }
-    public MotherBoard MotherBoard { get { return _motherBoard; } }
-    public PowerSupply PowerSupply { get { return _powerSupply; } }
-    public int StorageSlots { get { return _storageSlots; } }
-    public Storage[] Storages { get { return _storage; } }
-    public int FanSlots { get { return _fanSlots; } }
-    public Fan[] Fans { get { return _fans; } } 
+    private Transform _slotsTransform;
 
 
-    public void Start() 
+    private void FixedUpdate()
     {
-        _storageSlots = 4;
-        _fanSlots = 4;
+        _slotsTransform = this.transform.Find("Slots");
 
-        _storage = new Storage[_storageSlots];
-        _fans = new Fan[_fanSlots];
-    }
-
-    public void Update()
-    {
-
-    }
-
-    public bool InsertMotherBoard(MotherBoard motherBoard) 
-    {
-        if (motherBoard.MotherBoardSize == _motherBoardSize) 
+        if (!this.transform.Find("Slots"))
         {
-            _motherBoard = motherBoard;
-
-            return true;
-        }  
-
-        return false;
-    }
-
-    public bool InsertPowerSupply(PowerSupply powerSupply) 
-    {
-        _powerSupply = powerSupply;
-
-        return true;
-    }
-
-    public bool InsertStorageInSlot(Storage storage, int slot) 
-    {
-        if (_storage[slot] == null)
-        {
-            _storage[slot] = storage;
-
-            return true;
+            Debug.LogError("Parent of Slots Object must be named \"Slots\"");
         }
 
-        return false;
-    }
+        if (_motherBoard != null)
+            _motherBoard = _slotsTransform.GetComponentInChildren<GetMotherboard>().Motherboard.GetComponent<MotherBoard>();
 
-    public bool InsertFanInSlot(Fan fan, int slot) 
-    {
-        if (_fans[slot] == null) 
+        if (_powerSupply != null)
+        _powerSupply = _slotsTransform.GetComponentInChildren<GetPSU>().PowerSupply.GetComponent<PowerSupply>();
+
+        GetHDD[] hddScripts = _slotsTransform.GetComponentsInChildren<GetHDD>();
+
+        if (hddScripts != null)
         {
-            _fans[slot] = fan;
+            _hdds = new HDD[hddScripts.Length];
 
-            return true;
+            for (int i = 0; i < _hdds.Length; i++)
+            {
+                if (hddScripts[i].HDD != null)
+                    _hdds[i] = hddScripts[i].HDD.GetComponent<HDD>();
+            }
         }
 
-        return false;
+        GetSSD[] ssdScripts = _slotsTransform.GetComponentsInChildren<GetSSD>();
+
+        if (ssdScripts != null)
+        {
+            _ssds = new SSD[ssdScripts.Length];
+
+            for (int i = 0; i < _ssds.Length; i++)
+            {
+                if (ssdScripts[i].SSD != null)
+                    _ssds[i] = ssdScripts[i].SSD.GetComponent<SSD>();
+            }
+        }
+
+        if (_motherBoard != null)
+        {
+            Transform motherboardTransfrom = _motherBoard.gameObject.transform.Find("Slots");
+
+            _cpu = motherboardTransfrom.GetComponentInChildren<GetCPU>().CPU.GetComponent<CPU>();
+            _cpuFan = motherboardTransfrom.GetComponentInChildren<GetCPUFan>().CPUFan.GetComponent<CPUFan>();
+
+            GetMemory[] memoryScripts = motherboardTransfrom.GetComponentsInChildren<GetMemory>();
+
+            _memory = new Memory[memoryScripts.Length];
+
+            for (int i = 0; i < _memory.Length; i++)
+            {
+                _memory[i] = memoryScripts[i].Memory.GetComponent<Memory>();
+            }
+
+            GetGPU[] gpuScripts = motherboardTransfrom.GetComponentsInChildren<GetGPU>();
+
+            _gpus = new GPU[gpuScripts.Length];
+
+            for (int i = 0; i < _gpus.Length; i++)
+            {
+                _gpus[i] = gpuScripts[i].GPU.GetComponent<GPU>();
+            }
+        }
+
+        
+
     }
-    
+
 }

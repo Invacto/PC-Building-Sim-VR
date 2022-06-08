@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 3984965578717768081}
   - component: {fileID: 5250079371777327576}
   - component: {fileID: 2579515952125326298}
+  - component: {fileID: 7026832043696831239}
   m_Layer: 6
   m_Name: PSU
   m_TagString: Untagged
@@ -597,7 +598,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 7015973944335133558}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -632,6 +633,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &7026832043696831239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160336730059995123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f21f9673e039444a52a27fd1ad8588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7711758870036759714
 GameObject:
   m_ObjectHideFlags: 0

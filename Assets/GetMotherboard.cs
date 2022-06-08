@@ -6,6 +6,8 @@ public class GetMotherboard : MonoBehaviour
 {
     [SerializeField] private GameObject motherboardObject;
 
+    public GameObject Motherboard { get { return motherboardObject;  } }
+
     private bool rightGripValue;
     private bool leftGripValue;
     private bool handInTrigger;

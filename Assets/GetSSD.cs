@@ -6,7 +6,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GetSSD : MonoBehaviour
 {
-    [SerializeField] private GameObject ssdObject;
+    [SerializeField] private GameObject _ssdObject;
+
+    public GameObject SSD { get { return _ssdObject; } }
 
     private bool rightGripValue;
     private bool leftGripValue;
@@ -36,11 +38,11 @@ public class GetSSD : MonoBehaviour
 
         if (collider.gameObject.GetComponent<SSD>())
         {
-            ssdObject = collider.gameObject;
+            _ssdObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = ssdObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = _ssdObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -50,9 +52,9 @@ public class GetSSD : MonoBehaviour
         }
 
 
-        if (ssdObject != null && ssdObject.GetComponent<SSD>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (_ssdObject != null && _ssdObject.GetComponent<SSD>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = ssdObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _ssdObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -63,16 +65,16 @@ public class GetSSD : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == ssdObject && ssdObject != null)
+        if (collider.gameObject == _ssdObject && _ssdObject != null)
         {
-            BoxCollider[] colliders = ssdObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _ssdObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            ssdObject = null;
+            _ssdObject = null;
 
         }
     }

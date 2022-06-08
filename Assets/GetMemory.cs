@@ -5,7 +5,9 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 public class GetMemory : MonoBehaviour
 {
-    [SerializeField] private GameObject memoryObject;
+    [SerializeField] private GameObject _memoryObject;
+
+    public GameObject Memory { get { return _memoryObject; } }
 
      private bool rightGripValue;
      private bool leftGripValue;
@@ -34,11 +36,11 @@ public class GetMemory : MonoBehaviour
 
         if (collider.gameObject.GetComponent<Memory>())
         {
-            memoryObject = collider.gameObject;
+            _memoryObject = collider.gameObject;
 
             if (!rightGripValue && handInTrigger)
             {
-                BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+                BoxCollider[] colliders = _memoryObject.GetComponents<BoxCollider>();
 
                 foreach (BoxCollider boxCollider in colliders)
                 {
@@ -48,9 +50,9 @@ public class GetMemory : MonoBehaviour
         }
 
 
-        if (memoryObject != null && memoryObject.GetComponent<Memory>() && collider.gameObject.GetComponent<XRDirectInteractor>())
+        if (_memoryObject != null && _memoryObject.GetComponent<Memory>() && collider.gameObject.GetComponent<XRDirectInteractor>())
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _memoryObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
@@ -62,16 +64,16 @@ public class GetMemory : MonoBehaviour
     
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject == memoryObject && memoryObject != null)
+        if (collider.gameObject == _memoryObject && _memoryObject != null)
         {
-            BoxCollider[] colliders = memoryObject.GetComponents<BoxCollider>();
+            BoxCollider[] colliders = _memoryObject.GetComponents<BoxCollider>();
 
             foreach (BoxCollider boxCollider in colliders)
             {
                 boxCollider.enabled = true;
             }
 
-            memoryObject = null;
+            _memoryObject = null;
 
         }
     }

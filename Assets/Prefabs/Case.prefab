@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 1615237212681473708}
   - component: {fileID: 4662861347368319640}
   - component: {fileID: 264310428112830552}
-  - component: {fileID: 5303560952958078017}
   - component: {fileID: 5170108537758939620}
+  - component: {fileID: 5303560952958078017}
   m_Layer: 0
   m_Name: PSU Slot
   m_TagString: Untagged
@@ -193,8 +193,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
-  m_Center: {x: 0.000000029802319, y: 0, z: 0}
+  m_Size: {x: 0.7713069, y: 0.64017963, z: 1.6245741}
+  m_Center: {x: -0.11434613, y: -0.17991039, z: -0.31228697}
+--- !u!114 &5170108537758939620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311247899264151401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c84f3fa15bfa1c468d8962da67789cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  psuObject: {fileID: 0}
 --- !u!114 &5303560952958078017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,19 +259,6 @@ MonoBehaviour:
   m_SocketActive: 1
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
---- !u!114 &5170108537758939620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311247899264151401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c84f3fa15bfa1c468d8962da67789cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  psuObject: {fileID: 0}
 --- !u!1 &322921457691475797
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8742a209f7c824590bfec0de114a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hddObject: {fileID: 0}
+  _hddObject: {fileID: 0}
 --- !u!1 &3675390137850770016
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +945,7 @@ GameObject:
   - component: {fileID: 5379961283498199493}
   - component: {fileID: 2299250575321822595}
   - component: {fileID: 6822193851425907012}
+  - component: {fileID: 7714498430630912959}
   m_Layer: 6
   m_Name: Case
   m_TagString: Untagged
@@ -1166,6 +1167,26 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &7714498430630912959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296845717227473596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f42ecf4a53f36448cc00ecc02cd604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _powerSupply: {fileID: 0}
+  _motherBoard: {fileID: 0}
+  _cpu: {fileID: 0}
+  _cpuFan: {fileID: 0}
+  _gpus: []
+  _memory: []
+  _hdds: []
+  _ssds: []
 --- !u!1 &4803718982367065809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8742a209f7c824590bfec0de114a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hddObject: {fileID: 0}
+  _hddObject: {fileID: 0}
 --- !u!1 &6343055145000280546
 GameObject:
   m_ObjectHideFlags: 0
