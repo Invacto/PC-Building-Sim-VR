@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SSD : MonoBehaviour
 {
-    [SerializeField] private string _name { get; }
-    [SerializeField] private int _gigabytes { get; }
+    [SerializeField] private string _name;
+    [SerializeField] private int _gigabytes;
 
     public string Name { get { return _name; } }
     public int Gigabytes { get { return _gigabytes; } }

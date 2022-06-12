@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GPU : MonoBehaviour
 {
-   [SerializeField] private string _name { get; } 
-   [SerializeField] private GPULane _gpuLane;
-   [SerializeField] private int _wattage { get; }
+    [SerializeField] private string _name;
+    [SerializeField] private int _cudaCores;
+    [SerializeField] private int _memory;
+    [SerializeField] private GPULane _gpuLane;
+    [SerializeField] private int _wattage;
 
    public string Name { get { return _name; } }
    public GPULane GPULane { get { return _gpuLane; } }
