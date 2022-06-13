@@ -1,91 +1,201 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Computer : MonoBehaviour
 {
+    ComputerParts computerParts;
 
-    [SerializeField] private PowerSupply _powerSupply;
-    [SerializeField] private MotherBoard _motherBoard;
-    [SerializeField] private CPU _cpu;
-    [SerializeField] private CPUFan _cpuFan;
-    [SerializeField] private GPU[] _gpus;
-    [SerializeField] private Memory[] _memory;
-    [SerializeField] private HDD[] _hdds;
-    [SerializeField] private SSD[] _ssds;
+    [SerializeField] private Canvas monitorScreen;
+    private TextMeshProUGUI textMesh;
+    private RawImage backgroundImage;
 
-    private Transform _slotsTransform;
+    public bool hasMotherboard;
+    public bool hasCPU;
+    public bool hasCPUFan;
+    public bool hasMemory;
+    public bool hasGPU;
+    public bool hasPowersupply;
+    public bool hasStorage;
 
+    private bool displayedMissingMotherboard;
+    private bool displayedMissingCPU;
+    private bool displayedMissingCPUFan;
+    private bool displayedMissingMemory;
+    private bool displayedMissingGPU;
+    private bool displayedMissingPSU;
+    private bool displayedMissingStorage;
 
+    private void Start()
+    {
+        computerParts = this.GetComponent<ComputerParts>();
+        textMesh = monitorScreen.GetComponentInChildren<TextMeshProUGUI>();
+        backgroundImage = monitorScreen.GetComponentInChildren<RawImage>();
+    }
     private void FixedUpdate()
     {
-        _slotsTransform = this.transform.Find("Slots");
-
-        if (!this.transform.Find("Slots"))
+        if (computerParts != null)
         {
-            Debug.LogError("Parent of Slots Object must be named \"Slots\"");
-        }
+            
+            hasMotherboard = (computerParts.MotherBoard != null) ? true : false;
 
-        if (_motherBoard != null)
-            _motherBoard = _slotsTransform.GetComponentInChildren<GetMotherboard>().Motherboard.GetComponent<MotherBoard>();
+            hasCPU = (computerParts.CPU != null) ? true : false;
 
-        if (_powerSupply != null)
-        _powerSupply = _slotsTransform.GetComponentInChildren<GetPSU>().PowerSupply.GetComponent<PowerSupply>();
+            hasCPUFan = (computerParts.CPUFan != null) ? true : false;
 
-        GetHDD[] hddScripts = _slotsTransform.GetComponentsInChildren<GetHDD>();
+            hasPowersupply = (computerParts.PowerSupply != null) ? true : false;
 
-        if (hddScripts != null)
-        {
-            _hdds = new HDD[hddScripts.Length];
+            hasMemory = HasMemory();
 
-            for (int i = 0; i < _hdds.Length; i++)
+            hasGPU = HasGPU();
+
+            hasStorage = HasStorage();
+
+            UpdateDisplay();
+
+            if (hasMotherboard && hasCPU && hasCPUFan && hasMemory && hasGPU && hasPowersupply && hasStorage)
             {
-                if (hddScripts[i].HDD != null)
-                    _hdds[i] = hddScripts[i].HDD.GetComponent<HDD>();
+                backgroundImage.enabled = true;
             }
-        }
-
-        GetSSD[] ssdScripts = _slotsTransform.GetComponentsInChildren<GetSSD>();
-
-        if (ssdScripts != null)
-        {
-            _ssds = new SSD[ssdScripts.Length];
-
-            for (int i = 0; i < _ssds.Length; i++)
+            else
             {
-                if (ssdScripts[i].SSD != null)
-                    _ssds[i] = ssdScripts[i].SSD.GetComponent<SSD>();
-            }
-        }
-
-        if (_motherBoard != null)
-        {
-            Transform motherboardTransfrom = _motherBoard.gameObject.transform.Find("Slots");
-
-            _cpu = motherboardTransfrom.GetComponentInChildren<GetCPU>().CPU.GetComponent<CPU>();
-            _cpuFan = motherboardTransfrom.GetComponentInChildren<GetCPUFan>().CPUFan.GetComponent<CPUFan>();
-
-            GetMemory[] memoryScripts = motherboardTransfrom.GetComponentsInChildren<GetMemory>();
-
-            _memory = new Memory[memoryScripts.Length];
-
-            for (int i = 0; i < _memory.Length; i++)
-            {
-                _memory[i] = memoryScripts[i].Memory.GetComponent<Memory>();
+                backgroundImage.enabled = false;
             }
 
-            GetGPU[] gpuScripts = motherboardTransfrom.GetComponentsInChildren<GetGPU>();
-
-            _gpus = new GPU[gpuScripts.Length];
-
-            for (int i = 0; i < _gpus.Length; i++)
-            {
-                _gpus[i] = gpuScripts[i].GPU.GetComponent<GPU>();
-            }
         }
-
-        
-
     }
 
+    private void UpdateDisplay()
+    {
+        if (!hasMotherboard)
+        {
+            if (!displayedMissingMotherboard)
+                textMesh.text += "Missing Motherboard.\n";
+
+            displayedMissingMotherboard = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Motherboard.\n", "");
+            displayedMissingMotherboard = false;
+        }
+
+        if (!hasCPU)
+        {
+            if (!displayedMissingCPU)
+                textMesh.text += "Missing Central Processing Unit.\n";
+
+            displayedMissingCPU = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Central Processing Unit.\n", "");
+            displayedMissingCPU = false;
+        }
+
+        if (!hasCPUFan)
+        {
+            if (!displayedMissingCPUFan)
+                textMesh.text += "Missing Central Processing Unit Fan.\n";
+
+            displayedMissingCPUFan = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Central Processing Unit Fan.\n", "");
+
+            displayedMissingCPUFan = false;
+        }
+
+        if (!hasPowersupply)
+        {
+            if (!displayedMissingPSU)
+                textMesh.text += "Missing Powersupply.\n";
+
+            displayedMissingPSU = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Powersupply.\n", "");
+            displayedMissingPSU = false;
+        }
+
+        if (!hasMemory)
+        {
+            if (!displayedMissingMemory)
+                textMesh.text += "Missing Memory.\n";
+
+            displayedMissingMemory = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Memory.\n", "");
+            displayedMissingMemory = false;
+        }
+
+        if (!hasGPU)
+        {
+            if (!displayedMissingGPU)
+                textMesh.text += "Missing Graphics Processing Unit.\n";
+
+            displayedMissingGPU = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Graphics Processing Unit.\n", "");
+
+            displayedMissingGPU = false;
+        }
+
+        if (!hasStorage)
+        {
+            if (!displayedMissingStorage)
+                textMesh.text += "Missing Storage.\n";
+
+            displayedMissingStorage = true;
+        }
+        else
+        {
+            textMesh.text = textMesh.text.Replace("Missing Storage.\n", "");
+
+            displayedMissingStorage = false;
+        }
+    }
+
+    private bool HasMemory()
+    {
+        foreach (Memory ramStick in computerParts.Memory)
+        {
+            if (ramStick != null) return true;
+        }
+
+        return false;
+    }
+
+    private bool HasGPU()
+    {
+        foreach (GPU gpu in computerParts.GPUs)
+        {
+            if (gpu != null) return true;
+        }
+
+        return false;
+    }
+
+    private bool HasStorage()
+    {
+        foreach (HDD hdd in computerParts.HDDs)
+        {
+            if (hdd != null) return true;
+        }
+
+        foreach (SSD ssd in computerParts.SSDs)
+        {
+            if (ssd != null) return true;
+        }
+
+        return false;
+    }
 }

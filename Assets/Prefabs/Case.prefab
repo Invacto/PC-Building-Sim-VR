@@ -945,6 +945,7 @@ GameObject:
   - component: {fileID: 5379961283498199493}
   - component: {fileID: 2299250575321822595}
   - component: {fileID: 6822193851425907012}
+  - component: {fileID: 8557220047972987912}
   - component: {fileID: 7714498430630912959}
   m_Layer: 6
   m_Name: Case
@@ -1167,6 +1168,24 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &8557220047972987912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4296845717227473596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042a7ba5da4fb8146a0c765344ea0bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasMotherboard: 0
+  hasCPU: 0
+  hasCPUFan: 0
+  hasMemory: 0
+  hasGPU: 0
+  hasStorage: 0
 --- !u!114 &7714498430630912959
 MonoBehaviour:
   m_ObjectHideFlags: 0
